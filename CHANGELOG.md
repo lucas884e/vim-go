@@ -61,6 +61,18 @@ IMPROVEMENTS:
 * Run `gogetdoc` in the buffer's directory so that it will work regardless of
   the user's working directory in module-aware mode.
   [[GH-2804]](https://github.com/fatih/vim-go/pull/2804)
+* Add `g:go_gopls_analyses` to support `gopls`' analyses options.
+  [[GH-2820]](https://github.com/fatih/vim-go/pull/2820)
+* Add `g:go_gopls_local` to support `gopls`' local option to control how third
+  party imports are organized.
+  [[GH-2821]](https://github.com/fatih/vim-go/pull/2821)
+* Use gopls to get documentation and documentation links for identifiers under
+  the cursor.
+  [[GH-2822]](https://github.com/fatih/vim-go/pull/2822)
+* Parse compiler errors that prevent golangci-lint linters from running more
+  usefully.
+  [[GH-2835]](https://github.com/fatih/vim-go/pull/2835)
+
 
 BUG FIXES:
 * Use the discovered full path for gopls when renaming.
@@ -90,13 +102,26 @@ BUG FIXES:
 * Fix `:GoRun` so that it works as expected when the current working directory
   is neither in GOPATH nor within a module.
   [[GH-2782]](https://github.com/fatih/vim-go/pull/2782)
+  [[GH-2818]](https://github.com/fatih/vim-go/pull/2818)
 * Show the command executed by `:GoRun` when `g:go_debug` includes `'shell-commands'`.
   [[GH-2785]](https://github.com/fatih/vim-go/pull/2785)
+  [[GH-2817]](https://github.com/fatih/vim-go/pull/2817)
 * Clear the list for formatting errors when `g:go_fmt_command` is `gopls`.
   [[GH-2790]](https://github.com/fatih/vim-go/pull/2790)
 * Handle text edits from gopls that are only line insertions.
   [[GH-2802]](https://github.com/fatih/vim-go/pull/2802)
   [[GH-2803]](https://github.com/fatih/vim-go/pull/2803)
+* Add `g:go_imports_autosave` so that imports can be adjusted on save when
+  `g:go_imports_mode` is set to `gopls`.
+  [[GH-2800]](https://github.com/fatih/vim-go/pull/2800)
+* Correct vim-go's help to correctly identify `g:go_referrer_mode`'s default.
+  [[GH-2832]](https://github.com/fatih/vim-go/pull/2832)
+* Clear the quickfix list when `:GoLint` succeeds.
+  [[GH-2833]](https://github.com/fatih/vim-go/pull/2833)
+* Respect arguments to `:GoDocBrowser`.
+  [[GH-2822]](https://github.com/fatih/vim-go/pull/2822)
+* Use the correct path to documentation for struct fields with `:GoDocBrowser`.
+  [[GH-2822]](https://github.com/fatih/vim-go/pull/2822)
 
 ## v1.22 - (January 30, 2020)
 

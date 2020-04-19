@@ -163,7 +163,7 @@ function! go#cmd#Run(bang, ...) abort
   if a:0 == 0
     let l:files = go#tool#Files()
   else
-    let l:files = map(copy(a:000), "expand(v:val)")
+    let l:files = map(copy(a:000), "fnamemodify(expand(v:val), ':p')")
   endif
 
   let l:cmd = l:cmd + l:files
@@ -174,7 +174,7 @@ function! go#cmd#Run(bang, ...) abort
   if go#util#IsWin()
     try
       if go#util#HasDebug('shell-commands')
-        call go#util#EchoInfo('shell command: ' . l:cmd)
+        call go#util#EchoInfo(printf('shell command: %s', string(l:cmd)))
       endif
 
       execute l:cd . fnameescape(expand("%:p:h"))
